@@ -8,6 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 
 namespace CodingChallengeTemplate
 {
@@ -23,6 +27,25 @@ namespace CodingChallengeTemplate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Localization
+            services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
+            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization();
+            services.Configure<RequestLocalizationOptions>(
+                    options =>
+                    {
+                        var supportedCultures = new List<CultureInfo> {
+                            new CultureInfo("en-US"),
+                            new CultureInfo("nl-NL") };
+                        options.DefaultRequestCulture = new RequestCulture("en-US");
+                        options.SupportedCultures = supportedCultures;
+                        options.SupportedUICultures = supportedCultures;
+                        //Removes the ?culture= from the link.
+                        options.RequestCultureProviders.Remove(
+                            options.RequestCultureProviders.OfType<QueryStringRequestCultureProvider>().First());
+                    }
+                );
+            
             services.AddControllersWithViews();
         }
 
@@ -45,6 +68,9 @@ namespace CodingChallengeTemplate
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Localization
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
             app.UseEndpoints(endpoints =>
             {

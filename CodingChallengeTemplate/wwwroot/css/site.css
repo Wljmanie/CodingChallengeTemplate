@@ -1,5 +1,12 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿/*--- Setting the Colors of the template. ---*/
+:root {
+    --primary-bg-color: #3C424D;
+    --secondary-bg-color: #1B1D22;
+    --third-bg-color: #2D3139; /*Not used at the moment, but I like to save the color.*/
+    --a-light-color: #FFF8EB;
+    --secondary-light-color: #046985;
+    --primary-light-color: #4BBDCC;
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -7,29 +14,39 @@ a.navbar-brand {
   word-break: break-all;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+/*--- Sticky Header styles ---*/
+.navbar {
+    background-color: var(--primary-bg-color);
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.nav-link {
+    color: var(--secondary-light-color);
+    font-weight: bold;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    .nav-link:hover {
+        color: var(--primary-light-color);
+    }
+
+.active{
+    color: var(--primary-light-color);  
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+.border-bottom{
+  color:var(--a-light-color) !important; 
+}
 
+/*--- Body styles. ---*/
 
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color: var(--secondary-bg-color);
+}
 
 html {
+  position: relative;
+  min-height: 100%;
   font-size: 14px;
 }
 @media (min-width: 768px) {
@@ -38,41 +55,25 @@ html {
   }
 }
 
-
-
-
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+/*--- Footer styles ---*/
+.footer{
+    background-color: var(--primary-bg-color);
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.border-top{
+  color: var(--a-light-color) !important; 
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.footer-icons{
+  color: var(--secondary-light-color);
+  
+}
+.footer-icons:hover{
+  color: var(--primary-light-color);
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
+.footer-personal-logo{
   width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  height: auto;
+  max-height: 25px;
 }

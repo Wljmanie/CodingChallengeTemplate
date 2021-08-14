@@ -1,4 +1,6 @@
 ﻿using CodingChallengeTemplate.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -23,7 +25,15 @@ namespace CodingChallengeTemplate.Controllers
             return View();
         }
 
-        
+        //The method to set a cookie and the default culture and refreshes the page.
+        [HttpPost]
+        public IActionResult CultureManagement(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.Now.AddDays(30) });
+
+            return LocalRedirect(returnUrl);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
