@@ -7,8 +7,29 @@
     var returnUrl = string.IsNullOrWhiteSpace(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
 }
 
-<div>
-    <form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
-        <select name="culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" onchange="this.form.submit()"></select>
-    </form>
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <a asp-action="CultureManagement" asp-controller="Home" asp-route-returnUrl="@returnUrl" asp-route-culture="nl-NL">
+            @if (culture.RequestCulture.Culture.Name == "nl-NL")
+            {
+                <img class="flag-image" src="~/img/LanguageFlags/FlagColorNL.png" />
+            }
+            else
+            {
+                <img class="flag-image" src="~/img/LanguageFlags/FlagSemiGrayNL.png" />
+            }
+        </a>
+    </div>
+    <div class="col d-flex justify-content-center">
+        <a asp-action="CultureManagement" asp-controller="Home" asp-route-returnUrl="@returnUrl" asp-route-culture="en-US">
+            @if (culture.RequestCulture.Culture.Name == "en-US")
+            {
+                <img class="flag-image" src="~/img/LanguageFlags/FlagColorUS.png" />
+            }
+            else
+            {
+                <img class="flag-image" src="~/img/LanguageFlags/FlagSemiGrayUS.png" />
+            }
+        </a>
+    </div>
 </div>

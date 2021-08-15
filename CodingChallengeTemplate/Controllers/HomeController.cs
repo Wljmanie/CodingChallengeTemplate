@@ -26,7 +26,6 @@ namespace CodingChallengeTemplate.Controllers
         }
 
         //The method to set a cookie and the default culture and refreshes the page.
-        [HttpPost]
         public IActionResult CultureManagement(string culture, string returnUrl)
         {
             Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),

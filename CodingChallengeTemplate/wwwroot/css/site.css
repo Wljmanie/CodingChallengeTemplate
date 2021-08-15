@@ -8,10 +8,37 @@
     --primary-light-color: #4BBDCC;
 }
 
+.navbar-brand {
+    margin-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    font-family: 'Anton', sans-serif;
+}
+
+.regular-text {
+    font-family: 'Roboto', sans-serif;
+}
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+  color: var(--primary-light-color);
+  /*font-weight: bold;*/
+  /*font-style: italic;*/
+}
+
+.nav-width-fix{
+    min-width : 110px;
+}
+@media (min-width: 992px){
+    .nav-width-fix{
+        min-width: 0px;
+    }
+}
+@media(max-width: 340px){  /*Adjust this size based on the length of the name of the app.*/
+    .nav-width-fix{
+        min-width: 0px;
+    }
 }
 
 /*--- Sticky Header styles ---*/
@@ -32,8 +59,27 @@ a.navbar-brand {
     color: var(--primary-light-color);  
 }
 
+.flag-image{
+    max-height : 80px;
+}
+@media (min-width: 992px) {
+    .flag-image {
+        max-height: 40px;
+    }
+}
+
 .border-bottom{
   color:var(--a-light-color) !important; 
+}
+
+.navbar-toggler:focus, .navbar-toggler:active, .navbar-toggler-icon:focus {
+    color: var(--secondary-light-color);
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.menu-background{
+    background-color: var(--third-bg-color);
 }
 
 /*--- Body styles. ---*/
