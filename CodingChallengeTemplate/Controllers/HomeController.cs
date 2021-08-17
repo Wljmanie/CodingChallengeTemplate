@@ -25,6 +25,26 @@ namespace CodingChallengeTemplate.Controllers
             return View();
         }
 
+        public IActionResult AppJS()
+        {
+            return View();
+        }
+
+        public IActionResult CodeJS()
+        {
+            return View();
+        }
+
+        public IActionResult AppCS()
+        {
+            return View();
+        }
+
+        public IActionResult CodeCS()
+        {
+            return View();
+        }
+
         //The method to set a cookie and the default culture and refreshes the page.
         public IActionResult CultureManagement(string culture, string returnUrl)
         {

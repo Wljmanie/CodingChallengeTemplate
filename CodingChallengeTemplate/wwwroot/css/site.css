@@ -6,7 +6,11 @@
     --a-light-color: #FFF8EB;
     --secondary-light-color: #046985;
     --primary-light-color: #4BBDCC;
+    --prim-font: 'Anton', sans-serif;
+    --sec-font: 'Roboto', sans-serif;
 }
+
+
 
 .navbar-brand {
     margin-right: 0;
@@ -14,11 +18,29 @@
     padding-bottom: 0;
     padding-right: .5rem;
     padding-left: .5rem;
-    font-family: 'Anton', sans-serif;
+    font-family: var(--prim-font);
 }
 
 .regular-text {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--sec-font);
+    color: var(--a-light-color);
+}
+
+a.regular-text{
+    text-decoration:none;
+    color : var(--secondary-light-color);
+}
+
+    a.regular-text:hover{
+        color: var(--primary-light-color)
+    }
+    a.regular-text:focus{
+        color: var(--secondary-light-color);
+    }
+
+.header-text{
+    color: var(--primary-light-color);
+    font-family: var(--sec-font);
 }
 
 a.navbar-brand {
@@ -54,6 +76,11 @@ a.navbar-brand {
     .nav-link:hover {
         color: var(--primary-light-color);
     }
+    .nav-link:focus {
+        color: var(--secondary-light-color);
+    }
+    
+    
 
 .active{
     color: var(--primary-light-color);  
