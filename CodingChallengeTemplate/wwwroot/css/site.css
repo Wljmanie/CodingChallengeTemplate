@@ -10,7 +10,21 @@
     --sec-font: 'Roboto', sans-serif;
 }
 
+.icon-bs {
+    color: #7A43B6;
+}
 
+.icon-css3 {
+    color: #2965f1;
+}
+
+.icon-html5 {
+    color: #e34f26;
+}
+
+.icon-js {
+    color: #f7df1e;
+}
 
 .navbar-brand {
     margin-right: 0;
